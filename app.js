@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./api/routes/index');
 var usersRouter = require('./api/routes/users');
 var events = require('./api/routes/events');
+var setModel = require('./api/routes/setModel');
 
 var jwt = require('jsonwebtoken');
 var cors = require('cors')
@@ -44,7 +45,7 @@ function validateUser(req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', events);
-
+app.use('/setModel', setModel);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
