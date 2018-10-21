@@ -26,7 +26,7 @@ exports.events = (req, res, next) => {
   app.on('changeModel', model => {
     setMessage('changeModel', model.data, res)
   });
-  setInterval(writeEvent, 1000);
+  setInterval(writeEvent, 10000);
   function writeEvent() {
     setMessage('idle', 'This is event idle.', res)
   }
