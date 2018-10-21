@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 // const database = require('../Database/database')
 const moment = require('moment');
+var WebSocketServer = require('ws').Server;
+var wss = new WebSocketServer({port: 40510});
 
 exports.postEvent = function (req, res, next) {
   let coordinate = req.body[0];
@@ -10,11 +12,6 @@ exports.postEvent = function (req, res, next) {
     longitude: coordinate.longitude,
     timestamp: moment().format('YYYY-MM-DD HH:mm:ss')
   });
-  // let query = `INSERT INTO coordinates (id_user, latitude, longitude, timestamp) VALUES ('7029468LP','${coordinate.latitude}','${coordinate.longitude}','${moment().format('YYYY-MM-DD HH:mm:ss')}')`;
-  // database.query(query, (err, results) => {
-  //   if (err) throw next(err);
-  //   res.json({status: "success", message: "coordinate added successfully!!!", data: null});
-  // })
 }
 
 exports.TrackEvents = (req, res, next) => {
@@ -32,3 +29,22 @@ exports.TrackEvents = (req, res, next) => {
     res.write(`data: ${JSON.stringify(data)}\n\n`);
   })
 }
+
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocketServer.OPEN) {
+      client.send(data);
+    }
+  });
+};
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    // Broadcast to everyone else.
+    wss.clients.forEach(function each(client) {
+      if (client !== ws) {
+        client.send(data);
+      }
+    });
+  });
+});
