@@ -19,8 +19,6 @@ This module was development to connect the data models with desktop client and A
 
 ==================
 
-##Installation
-
 Installing Node.js
 ------------------
 We recommend installing the latest version of node.
