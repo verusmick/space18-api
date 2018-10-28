@@ -1,5 +1,25 @@
-Space apps 2018 - API
+# SpaceApps 2018 - API
+# Team: Polynomial Chaos
+### Challenge Name : POLAR OPPOSITES
+
+## Description
+Design a data analysis and/or visualization tool to show the spatial and temporal changes in Arctic and Antarctic ice to a general audience.
+
+
+## Objective
+This module was development to connect the data models with desktop client and Augmented reality Client with web sockets.
+
+## Useful links
+
+1. [Our project!](https://2018.spaceappschallenge.org/challenges/icy-glare/recycle-polar-opposites/teams/polynomial-chaos/project)
+
+2. [Slides](https://drive.google.com/file/d/1JKgf_4HnJtIg6mQwnuUACWHXipP8z5Vp/view?usp=sharing)
+
+3. [Video]()
+
 ==================
+##Instalation
+
 Installing Node.js
 ------------------
 We recommend installing the latest version of node.
