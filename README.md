@@ -19,7 +19,7 @@ This module was development to connect the data models with desktop client and A
 
 ==================
 
-##Instalation
+##Installation
 
 Installing Node.js
 ------------------
