@@ -38,7 +38,7 @@ Run the following command from the root of your source files to install the node
 
 Execute the app
 --------------------------
-henLoad http://localhost:3000/ in your browser to access the app.
+henLoad http://localhost:3007/ in your browser to access the app.
 
 In Windows
 + set DEBUG=sm-api:* & npm start
